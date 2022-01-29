@@ -1,0 +1,155 @@
+.newArticle {
+    width: 938px;
+    margin: 0 auto;
+    margin-top: 34px;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: 0  2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    padding-top: 50px;
+}
+
+.formContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 874px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.formInput {
+    width: 874px;
+    height: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.formInput:focus-visible,
+.formTag:focus-visible,
+.formInputText:focus-visible {
+    outline: none;
+    border: 2px solid #1890FF;
+}
+
+.formLabel {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.formContainerTag {
+    width: 874px;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.formTag {
+    width: 300px;
+    height: 40px;
+    border: 1px solid grey;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.formInputText {
+    width: 874px;
+    height: 168px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    border: 1px solid gray;
+}
+
+.btnDelete {
+    width: 100px;
+    height: 40px;
+    margin-left: 15px;
+    background-color: white;
+    border: 1px solid red;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: red;
+}
+.btnDelete, .btnAdd,
+.btnSend, .formInputText,
+.formInput, .formTag {
+    border-radius: 5px;
+}
+
+.btnAdd {
+    width: 120px;
+    height: 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #1890FF;
+    border: 1px solid #1890FF;
+    background-color: white;
+}
+
+.btnSend {
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 320px;
+    height: 40px;
+    background: #18b2ff;
+    border: 1px solid #18b2ff;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: white; 
+    margin-bottom: 50px;
+}
+
+.btnAdd:hover,
+.btnDelete:hover,
+.btnSend:hover{
+    transform: scale(1.02);
+}
+
+.btnSend:hover {
+    background: #1890FF;
+}
+
+.formInput::placeholder,
+.formInputText::placeholder,
+.formTag::placeholder {
+    color:  #BFBFBF
+}
+
+.danger {
+    color: red;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-bottom: -5px;
+}
+
+.errorMes {
+    width: 200px;
+    color: red;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-left: 30px;
+    margin-bottom: -10px;
+}
+.tagGroup {
+    width: 570px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tagGroupName {
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+
+
+
+
+
+

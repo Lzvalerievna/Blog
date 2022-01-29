@@ -1,0 +1,125 @@
+@import '../../variables';
+
+
+.header {
+    display: flex;
+    margin: 0 auto;
+    
+    height: 90px;
+    flex-wrap: nowrap;
+    background:white;
+}
+.headerText {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    color:black;
+    display: block;
+    margin-left: 50px;
+    font-size: 18px;
+    line-height: 90px;
+}
+
+.authContaner {
+    display: flex;
+    margin-top: 20px;
+}
+
+.headerNav {
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.navSignIn,
+.navSignUp,
+.logOut {
+    text-decoration: none;
+    color:black;
+}
+
+.headerNav li {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    margin-top: -3px;
+}
+
+.headerNav li { 
+    margin-top: 10px;
+    padding: 20px 30px 20px 30px;
+    margin-right: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+   
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.headerNav li {
+    cursor: pointer;
+}
+
+.headerNav li:hover {
+    border-color: #52C41A;
+}
+
+.headerNav li:active {
+    border: 1px solid #52C41A;
+}
+
+.authImg {
+    width: 50px;
+    height: 50px;
+    border-radius:50%;
+    margin-right: 30px;
+}
+
+
+.logOut{
+    padding: 10px 20px 10px 20px;
+    margin-right: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    background: none;
+   
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.logOut:hover {
+    border: 1px solid #52C41A;
+}
+
+.authUserName {
+    margin-right: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    color: black;
+    line-height: 47px;
+}
+
+.newArticle {
+    height: 30px;
+    width: 100px;
+    margin-right: 40px;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: black;
+    background: none;
+    padding-top: 3px;
+    padding-left: 7px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.newArticle:hover {
+    border: 1px solid #52C41A;
+}
+
+.activeSignin,
+.activeSignUp,
+.activeUsername,
+.createArticle {
+    color: #52C41A;
+}
+

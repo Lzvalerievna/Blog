@@ -1,0 +1,82 @@
+{
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "eslint-config-prettier",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+        "curly": ["error"],
+        "max-depth": ["warn", 4],
+        "id-length": ["warn", { "exceptions": ["i", "j"], "min": 2 }],
+        "no-lonely-if": ["error"],
+        "no-plusplus": "off",
+        "no-restricted-syntax": "off",
+        "class-methods-use-this": "off",
+        "jsx-a11y/href-no-hash": ["off"],
+        "jsx-a11y/anchor-is-valid": ["off"],
+        "jsx-a11y/label-has-associated-control": [ "error", {
+          "assert": "either"
+        }],
+        "react/state-in-constructor": ["off"],
+        "react/jsx-props-no-spreading": ["off"],
+        "react/static-property-placement": ["off"],
+        "react/jsx-filename-extension": "off",
+        "jsx-a11y / label-has-for": "off",
+        "react/prefer-stateless-function": "off",
+        "prefer-template": "off",
+        "react/no-unused-state": "off",
+        "no-const-assign": "off",
+        "no-unused-vars": "off",
+        "import/no-named-as-default": "off",
+        "consistent-return": "off",
+        "arrow-body-style": "off",
+        "react/button-has-type": "off",
+        "import/prefer-default-export": "off",
+        "no-case-declarations": "off",
+        "prefer-object-spread": "off",
+        "react/prop-types": "off",
+        "no-console": "off",
+        "no-else-return": "off",
+        "no-undef": "off",
+        "react/jsx-no-undef": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "func-names": "off",
+        "react/no-array-index-key": "off",
+        "react/jsx-curly-brace-presence": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "for-direction": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "no-shadow": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-debugger": "off",
+        "lines-between-class-members": "off",
+        "react/jsx-no-bind": "off",
+        "no-param-reassign": "off",
+        "jsx-a11y/control-has-associated-label": "off",
+        "import/named": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-boolean-value": "off"
+    },
+    "settings": {
+        "react": {
+          "pragma": "React",
+          "version": "detect"
+        }
+      }
+} 

@@ -1,0 +1,17 @@
+html,
+body {
+    margin: 0 auto;
+    background: #f3f7fa;
+}
+
+body {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 12px;
+}
+
+#root{
+    background: #f3f7fa;
+    margin: 0 auto;
+}
+
+

@@ -1,0 +1,148 @@
+@import '../../variables';
+
+.container {
+    padding-top: 60px;
+}
+
+.blogContainer {
+    width: 384px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    box-shadow: 0px 22px 106px rgba(0, 0, 0, 0.07),
+     0px 9.19107px 44.2843px rgba(0, 0, 0, 0.0503198),
+     0px 4.91399px 23.6765px rgba(0, 0, 0, 0.0417275),
+     0px 2.75474px 13.2728px rgba(0, 0, 0, 0.035), 0px 1.46302px 7.04911px rgba(0, 0, 0, 0.0282725),
+     0px 0.608796px 2.93329px rgba(0, 0, 0, 0.0196802);
+}
+
+.blogContainerName {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 0px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.blogContainerForm {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formInput {
+    margin: 0 auto;
+    width: 308px;
+    height: 40px;
+    padding-left: 12px;
+    color: #BFBFBF;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: black;
+    border: 1px solid #BFBFBF;
+    border-radius: 5px;
+}
+
+.formContainer {
+    margin: 0 auto;
+    width: 320px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formLabel {
+    color: #262626;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+
+.formContainerBtn {
+   margin: 0 auto;
+   margin-top: 10px;
+   width: 319px;
+}
+
+.formContainerP {
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 190px;
+    height: 20px;
+}
+
+.formP {  
+    height: 20px;
+    color: #BFBFBF;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+
+.navSignUp {
+    text-decoration: none;
+    color: #1890FF;
+}
+
+.formInput::placeholder {color:  #BFBFBF}
+
+.formButton {
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 308px;
+    height: 43px;
+    background-color: #18b2ff;
+    border: 1px solid #BFBFBF;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.danger {
+    color: red;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: -5px;
+    margin-left: 10px;
+}
+
+.errorMes {
+    width: 200px;
+    color: red;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-bottom: -10px;
+}
+
+.signin {
+    width: 308px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #18b2ff;
+ }
+
+ .formButton:hover {
+    background: #1890FF;
+    transform: scale(1.02);
+ }
+
+ .formInput:focus-visible {
+    outline: none;
+    border: 2px solid #1890FF;
+}
+

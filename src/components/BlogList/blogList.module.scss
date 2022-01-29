@@ -1,0 +1,47 @@
+@import '../../variables';
+
+.blogList {
+    padding-top: 40px;
+}
+
+.blogListPages {
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    .page, .currentPage {
+        border: 1px solid lightblue;
+        border-radius: 10%;
+        padding: 5px 10px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
+    .currentPage {
+        border: 2px solid #1890FF;
+        color: white;
+        background-color: #1890FF;
+        font-weight: 700;
+    }
+}
+
+.navArticle {
+    text-decoration: none;
+}
+
+.spin {
+    margin: 0 auto;
+    width: 30px;
+    height: 250px;
+    margin-top: 250px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
