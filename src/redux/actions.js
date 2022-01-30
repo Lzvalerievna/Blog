@@ -16,7 +16,7 @@ export const setNewArticle = (payload) => ({type: 'NEWARTICLE', payload})
 export const setPassword = (payload) => ({type: 'PASSWORD', payload})
 export const setCurrentPage = (page, pageOffset) => ({type: 'CURRENTPAGE', page, pageOffset})
 
-export const saveArticleInLocalStorage = (article) => {
+export const saveArticle = (article) => {
   localStorage.setItem('article', JSON.stringify(article))
 }
 
@@ -85,6 +85,8 @@ export const setEditProf = (email, username,image, password) => dispatch => {
 export const setArticle = (slug) => dispatch => {
   swapiService.getArticle(slug) 
     .then(res => {
+      console.log(res.article)
+      saveArticle(res.article)
       dispatch(setArticleDescriotion(res))
   })
 }
@@ -110,7 +112,6 @@ export const setCreateArticle = (title, description, text, tagList, history) => 
   .then(res => {
     if(res.article) {
       dispatch(setNewArticle(res.article)) 
-      saveArticleInLocalStorage(res.article)
       dispatch(setTitleError(''))
       history.replace('/articles')
     } else {
@@ -119,12 +120,14 @@ export const setCreateArticle = (title, description, text, tagList, history) => 
   })
 }
 
-export const setUpdateArticle = (title, description, text,  slug, history) => dispatch => {
-  swapiService.updateArticle(title, description, text, slug) 
-
-      dispatch(setNewArticle()) 
+export const setUpdateArticle = (title, description, text, tagList, slug, history) => dispatch => {
+  swapiService.updateArticle(title, description, text, tagList, slug) 
+  .then(res => {
+    console.log(res.article)
+      dispatch(setNewArticle(res.article)) 
       dispatch(setTitleError(''))
       history.replace('/articles')
+  })
 }
 
 export const setDeletArticle = (slug,history) => dispatch => {

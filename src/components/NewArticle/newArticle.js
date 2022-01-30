@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useForm, useFieldArray} from "react-hook-form";
@@ -6,21 +6,24 @@ import classes from './newArticle.module.scss';
 import {setCreateArticle, setUpdateArticle, setDeletArticle} from '../../redux/actions';
 
 
-function NewArticle({location, obj = { tagList: []}}) {
+function NewArticle({location}) {
 
     const history = useHistory()
     const dispatch = useDispatch()
     const newArticle = useSelector(state => state.reducer)
+    const aaa = JSON.parse(localStorage.getItem('article'))
+    let obj;
 
-    const objLocalArticle = JSON.parse(localStorage.getItem('article'))
-
-    if(localStorage.getItem('article') && location.pathname !== '/new-article') {
+    if(location.pathname !== '/new-article') {
         obj = {
-            title: objLocalArticle.title,
-            description: objLocalArticle.description,
-            text: objLocalArticle.body,
-            tagList: objLocalArticle.tagList
+            title: aaa.title,
+            description: aaa.description,
+            text: aaa.body,
+            tagList: aaa.tagList
         }
+    }
+    if(location.pathname === '/new-article') {
+        obj = { tagList: []}
     }
         
 
@@ -35,10 +38,12 @@ function NewArticle({location, obj = { tagList: []}}) {
             newArr.push(item.tag);
             return newArr;
         }, []);
-        dispatch(setCreateArticle(data.title, data.description, data.text, arrTagList, history))
+    
+        if(location.pathname === '/new-article') {
+            dispatch(setCreateArticle(data.title, data.description, data.text, arrTagList, history))
+        }
         if(location.pathname !== '/new-article') {
-            dispatch(setDeletArticle(newArticle.article.slug, history))
-            dispatch(setUpdateArticle(data.title, data.description, data.text, newArticle.article.tagList, newArticle.article.slug, history))
+            dispatch(setUpdateArticle(data.title, data.description, data.text, arrTagList, aaa.slug, history))
         }
     }
     return(

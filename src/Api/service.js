@@ -120,7 +120,8 @@ async userUpdate(email, username, image, password) {
     }
     
 
-    async updateArticle (title, description, text, slug) {
+    async updateArticle (title, description, text, tagList, slug) {
+        console.log(slug)
         const ccc = JSON.parse(localStorage.getItem('token')).token
       
         const result = await fetch(`${base}/articles/${slug}`, {
@@ -129,11 +130,13 @@ async userUpdate(email, username, image, password) {
             body: JSON.stringify({ "article": {
                 "title": title,
                 "description": description,
-                "body": text
+                "body": text,
+                "tagList": tagList
             }}),
             redirect: 'follow'
         }) 
             const body = await result.json()
+            console.log(body)
             return body;
     }
 
