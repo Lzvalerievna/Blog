@@ -1,9 +1,11 @@
+@import '../../variables';
+
 .newArticle {
     width: 938px;
     margin: 0 auto;
     margin-top: 34px;
     margin-bottom: 30px;
-    background-color: white;
+    background-color: $backgrounBlog;
     box-shadow: 0  2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     margin-bottom: 30px;
@@ -28,7 +30,7 @@
     height: 40px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    border: 1px solid gray;
+    border: 1px solid $colorForm;
     border-radius: 5px;
 }
 
@@ -36,7 +38,7 @@
 .formTag:focus-visible,
 .formInputText:focus-visible {
     outline: none;
-    border: 2px solid #1890FF;
+    border: 2px solid $colorTitle;
 }
 
 .formLabel {
@@ -53,7 +55,7 @@
 .formTag {
     width: 300px;
     height: 40px;
-    border: 1px solid grey;
+    border: 1px solid $colorForm;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
 }
@@ -63,18 +65,18 @@
     height: 168px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    border: 1px solid gray;
+    border: 1px solid $colorForm;
 }
 
 .btnDelete {
     width: 100px;
     height: 40px;
     margin-left: 15px;
-    background-color: white;
-    border: 1px solid red;
+    background-color: $backgrounBlog;
+    border: 1px solid $borderTabs;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    color: red;
+    color: $borderTabs;
 }
 .btnDelete, .btnAdd,
 .btnSend, .formInputText,
@@ -87,9 +89,9 @@
     height: 40px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    color: #1890FF;
-    border: 1px solid #1890FF;
-    background-color: white;
+    color: $colorTitle;
+    border: 1px solid $colorTitle;
+    background-color: $backgrounBlog;
 }
 
 .btnSend {
@@ -97,11 +99,11 @@
     margin-left: 30px;
     width: 320px;
     height: 40px;
-    background: #18b2ff;
-    border: 1px solid #18b2ff;
+    background: $colorFormBtn;
+    border: 1px solid $colorFormBtn;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
-    color: white; 
+    color: $backgrounBlog; 
     margin-bottom: 50px;
 }
 
@@ -112,17 +114,17 @@
 }
 
 .btnSend:hover {
-    background: #1890FF;
+    background: $colorTitle;
 }
 
 .formInput::placeholder,
 .formInputText::placeholder,
 .formTag::placeholder {
-    color:  #BFBFBF
+    color: $colorForm;
 }
 
 .danger {
-    color: red;
+    color: $borderTabs;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     margin-bottom: -5px;
@@ -130,7 +132,7 @@
 
 .errorMes {
     width: 200px;
-    color: red;
+    color: $borderTabs;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
     margin-top: 10px;

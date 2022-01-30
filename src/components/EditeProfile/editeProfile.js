@@ -1,11 +1,13 @@
-import React, { useRef, useState, useEffect } from 'react';
-import {connect, useDispatch, useSelector} from 'react-redux';
+import React from 'react';
+import {useHistory} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import { useForm } from "react-hook-form";
 import classes from './editeProfile.module.scss';
 import {setEditProf} from '../../redux/actions';
 
 function EditProfile() {
-
+    
+    const history = useHistory()
     const dispatch = useDispatch()
     const newPassword = useSelector(state => state.authReducer.password)
     const objLocalUser = JSON.parse(localStorage.getItem('token'))
@@ -20,7 +22,7 @@ function EditProfile() {
     });
 
     const onSubmit = data => {
-        dispatch(setEditProf(data.username, data.email, data.image, data.password))
+        dispatch(setEditProf(data.username, data.email, data.image, data.password, history))
     }
 
     return(

@@ -5,7 +5,7 @@
     margin: 0 auto;
     margin-top: 40px;
     padding-top: 15px;
-    background-color: #FFFFFF;
+    background-color: $backgrounBlog;
     box-shadow: 0  2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -89,7 +89,7 @@
 }
 
 .blogTitle {
-    color: #1890FF;
+    color: $colorTitle;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
     line-height: 28px;
@@ -142,12 +142,12 @@
 }
 
 .btnDelete {  
-    border: 1px solid red;
-    color: red;
+    border: 1px solid $borderTabs;
+    color: $borderTabs;
 }
 .btnEdit {  
-    border: 1px solid #52C41A;
-    color: #52C41A;
+    border: 1px solid $colorBtn;
+    color: $colorBtn;
 }
 
 .spin {

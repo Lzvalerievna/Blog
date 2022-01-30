@@ -20,7 +20,7 @@ function Header() {
   return (
     <div className = {classes.header}>
       <p><NavLink  className = {classes.headerText} to = {'/articles'} activeClassName={classes.headerName}>Realworld Blog</NavLink></p>
-      <ul className = {classes.headerNav}>
+      <div className = {classes.headerNav}>
         {localStorage.getItem('token')  ? (
            <div className = {classes.authContaner}> 
               <NavLink className = {classes.newArticle} to = {'new-article'} activeClassName={classes.createArticle} exact>Create article</NavLink>
@@ -34,7 +34,7 @@ function Header() {
             <li><NavLink className = {classes.navSignUp} to = {'/sign-up'} activeClassName={classes.activeSignUp} exact>Sign up</NavLink></li>
           </>
         )}
-      </ul>
+      </div>
     </div>
   )
 }

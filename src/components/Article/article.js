@@ -12,6 +12,7 @@ function Article({match}) {
   const articleSlug = match.params.slug
   const dispatch = useDispatch()
   const history = useHistory()
+  const like = useSelector(state => state.reducer.like)
   const blog = useSelector(state => state.reducer.article)
   const user = useSelector(state => state.authReducer.user)
   const loading = useSelector(state => state.reducer.loading)
@@ -41,7 +42,8 @@ function Article({match}) {
           <div className = {classes.blog}>
             <p className = {classes.blogTitle}>{blog.title}</p>
             <p className = {classes.favoriteCounte}>
-            <img className ={classes.image} src='../../heart.svg' alt="heart"/>
+            {!like ? <img className ={classes.image} src='../../heart.svg' alt="heart"/> : 
+              <img className ={classes.image} src='../../heartRed.svg' alt="heart"/>}
             <span>{blog.favoritesCount}</span>
             </p>
             <div className = {classes.Author}>

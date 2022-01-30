@@ -7,8 +7,8 @@
 .blogContainer {
     width: 384px;
     margin: 0 auto;
-    background: white;
-    border: 1px solid #D9D9D9;
+    background: $backgrounBlog;
+    border: 1px solid $borderProf;
     border-radius: 6px;
     box-shadow: 0px 22px 106px rgba(0, 0, 0, 0.07),
      0px 9.19107px 44.2843px rgba(0, 0, 0, 0.0503198),
@@ -37,11 +37,11 @@
     width: 308px;
     height: 40px;
     padding-left: 12px;
-    color: #BFBFBF;
+    color: $colorForm;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: black;
-    border: 1px solid #BFBFBF;
+    border: 1px solid $colorForm;
     border-radius: 5px;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .formLabel {
-    color: #262626;
+    color: $colorFormLabel;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
@@ -78,14 +78,14 @@
 
 .formP {  
     height: 20px;
-    color: #BFBFBF;
+    color: $colorForm;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
 }
 
 .navSignUp {
     text-decoration: none;
-    color: #1890FF;
+    color: $colorTitle;
 }
 
 .formInput::placeholder {color:  #BFBFBF}
@@ -95,8 +95,8 @@
     margin-top: 10px;
     width: 308px;
     height: 43px;
-    background-color: #18b2ff;
-    border: 1px solid #BFBFBF;
+    background-color: $colorFormBtn;
+    border: 1px solid $colorForm;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: white;
@@ -133,16 +133,16 @@
     text-align: center;
     border-radius: 5px;
     padding: 5px;
-    background-color: #18b2ff;
+    background-color: $colorFormBtn;
  }
 
  .formButton:hover {
-    background: #1890FF;
+    background: $colorTitle;
     transform: scale(1.02);
  }
 
  .formInput:focus-visible {
     outline: none;
-    border: 2px solid #1890FF;
+    border: 2px solid $colorTitle;
 }
 

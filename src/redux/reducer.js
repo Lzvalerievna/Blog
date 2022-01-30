@@ -1,11 +1,10 @@
 
-const initionState = {blogList: [], article: [], titleError: '', loading: true, totalPage: 0, currentPage: 0, offset: 0}
+const initionState = {blogList: [], article: [], titleError: '', loading: true, totalPage: 0, currentPage: 0, offset: 0, like: false}
 
 const reducer = (state = initionState, action) => {
     switch (action.type) {
 
       case'BLOGLIST':
-      console.log(action.payload.articlesCount)
       return {...state, blogList: action.payload.articles, loading: false, totalPage: action.payload.articlesCount}
 
       case'CURRENTPAGE':
@@ -15,14 +14,12 @@ const reducer = (state = initionState, action) => {
       return {...state, loading: action.payload} 
       
       case'DESCRIPTION':
-      console.log(action.payload.article)
       return {...state, article: action.payload.article, loading: false}
 
       case'ERRORTITLENAME':
       return{...state, titleError: action.payload}
       
       case'FAVORITED':
-      console.log(action.payload)
       return {...state, blogList: state.blogList.map(article => {
         console.log(article.slug)
         console.log(action.payload.slug)
@@ -33,6 +30,9 @@ const reducer = (state = initionState, action) => {
       }),
       article: action.payload
     }  
+
+    case'LIKE': 
+    return {...state, like: action.payload}
 
     case'NEWARTICLE': {
       return {...state, blogList: state.blogList}

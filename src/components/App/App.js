@@ -22,7 +22,6 @@ function App() {
     useEffect(() => {
         const localStorageRef = localStorage.getItem('token')
         if(localStorageRef) {
-            console.log(localStorageRef)
           dispatch(setUserLocalstorege(JSON.parse(localStorageRef)))
         }
     },[])
@@ -37,7 +36,7 @@ function App() {
                     <Route path="/articles/:slug" exact component={Article} />
                     <Route path="/sign-up" component={FormSignUp}/>
                     <Route path="/sign-in" component={FormSignIn}/>
-                    <Route path="/profile" component={EditProfile} />
+                    <PrivateRoute path="/profile" component={EditProfile} />
                     <Route path="/new-article" component={NewArticle} />
                     <PrivateRoute path="/articles/:slug/edit" component={NewArticle} />
                 </Switch>

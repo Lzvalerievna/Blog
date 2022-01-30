@@ -15,6 +15,7 @@ export const setTitleError = (payload) => ({type: 'ERRORTITLENAME', payload})
 export const setNewArticle = (payload) => ({type: 'NEWARTICLE', payload})
 export const setPassword = (payload) => ({type: 'PASSWORD', payload})
 export const setCurrentPage = (page, pageOffset) => ({type: 'CURRENTPAGE', page, pageOffset})
+export const setLike = (payload) => ({type: 'LIKE', payload})
 
 export const saveArticle = (article) => {
   localStorage.setItem('article', JSON.stringify(article))
@@ -73,20 +74,19 @@ export const setLogOut = (history) => dispatch => {
   history.replace('/articles')
 }
 
-export const setEditProf = (email, username,image, password) => dispatch => {
+export const setEditProf = (email, username,image, password, history) => dispatch => {
 
   swapiService.userUpdate(username, email, image, password)
   .then(res => {
     saveTokenInLocalStorage(res.user)
     dispatch(setSignUpAction(res.user)) 
+    history.replace('/articles')
   })
 }
 
 export const setArticle = (slug) => dispatch => {
   swapiService.getArticle(slug) 
     .then(res => {
-      console.log(res.article)
-      saveArticle(res.article)
       dispatch(setArticleDescriotion(res))
   })
 }
@@ -94,7 +94,7 @@ export const setArticle = (slug) => dispatch => {
 export const setFavorite = (slug) => dispatch => {
   swapiService.postFavorite(slug)
   .then(res => {
-    console.log(res.article.favorited)
+    dispatch(setLike(res.article.favorited))
     dispatch(setFavorited(res.article))
   })
 }
@@ -102,7 +102,7 @@ export const setFavorite = (slug) => dispatch => {
 export const setDeleteFavorite = (slug) => dispatch => {
   swapiService.deleteFavorite(slug)
   .then(res => {
-    console.log(res.article.favorited)
+    dispatch(setLike(res.article.favorited))
     dispatch(setFavorited(res.article))
   })
 }

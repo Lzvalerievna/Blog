@@ -7,12 +7,12 @@
     
     height: 90px;
     flex-wrap: nowrap;
-    background:white;
+    background: $backgrounBlog;
 }
 .headerText {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
-    color:black;
+    color: $colorText;
     display: block;
     margin-left: 50px;
     font-size: 18px;
@@ -33,7 +33,7 @@
 .navSignUp,
 .logOut {
     text-decoration: none;
-    color:black;
+    color: $colorText;
 }
 
 .headerNav li {
@@ -44,25 +44,31 @@
 
 .headerNav li { 
     margin-top: 10px;
-    padding: 20px 30px 20px 30px;
-    margin-right: 10px;
+    width: 100px;
+    height: 60px;
+    margin-right: 20px;
+    margin-top: 15px;
+  
+    text-align: center;
+    
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-   
-    border: 1px solid white;
-    border-radius: 5px;
-}
-
-.headerNav li {
     cursor: pointer;
 }
 
-.headerNav li:hover {
-    border-color: #52C41A;
+.navSignIn, 
+.navSignUp {
+    width: 100px;
+    height: 60px;
+    vertical-align: middle;
+    padding-top: 15px;
 }
 
-.headerNav li:active {
-    border: 1px solid #52C41A;
+.activeSignin,
+.activeSignUp {
+    border: 1px solid $colorBtn;
+    border-radius: 5px;
+    color: $colorBtn;
 }
 
 .authImg {
@@ -80,20 +86,20 @@
     font-size: 18px;
     background: none;
    
-    border: 1px solid black;
+    border: 1px solid $colorText;
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
 .logOut:hover {
-    border: 1px solid #52C41A;
+    border: 1px solid $colorBtn;
 }
 
 .authUserName {
     margin-right: 15px;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    color: black;
+    color: $colorText;
     line-height: 47px;
 }
 
@@ -101,25 +107,25 @@
     height: 30px;
     width: 100px;
     margin-right: 40px;
+    padding-top: 4px;
     margin-top: 10px;
     font-family: 'Inter', sans-serif;
     font-size: 14px;
-    color: black;
+    color: $colorText;
     background: none;
-    padding-top: 3px;
-    padding-left: 7px;
-    border: 1px solid white;
-    border-radius: 5px;
 }
 
-.newArticle:hover {
-    border: 1px solid #52C41A;
-}
-
-.activeSignin,
-.activeSignUp,
-.activeUsername,
 .createArticle {
-    color: #52C41A;
+    height: 30px;
+    width: 110px;
+    padding-top: 3px;
+    padding-left: 9px;
+    border: 1px solid $colorBtn;
+    border-radius: 5px;
+    color: $colorBtn;
+}
+
+.activeUsername {
+    color: $colorBtn;
 }
 

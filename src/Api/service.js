@@ -6,7 +6,6 @@ export default class SwapiService {
        
     
     async getBlogList(offset)  {
-        console.log(offset)
         const response = await fetch(`${base}/articles`);
 
         if (localStorage.getItem('token')) {
@@ -19,7 +18,6 @@ export default class SwapiService {
                 throw new Error(`Ошибка по адресу ${base}/articles, статус ошибки ${result}`)
             }
             const body = await result.json()
-            console.log(body)
             return body;
         }
 
@@ -115,13 +113,11 @@ async userUpdate(email, username, image, password) {
         }})
         }) 
             const body = await result.json()
-            console.log(body)
             return body;
     }
     
 
     async updateArticle (title, description, text, tagList, slug) {
-        console.log(slug)
         const ccc = JSON.parse(localStorage.getItem('token')).token
       
         const result = await fetch(`${base}/articles/${slug}`, {
@@ -136,7 +132,6 @@ async userUpdate(email, username, image, password) {
             redirect: 'follow'
         }) 
             const body = await result.json()
-            console.log(body)
             return body;
     }
 

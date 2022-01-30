@@ -5,7 +5,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 20px;
     line-height: 28px;
-    color: black;
+    color: $colorText;
 }
 
 .Blog {
@@ -13,7 +13,7 @@
     margin: 0 auto;
     padding-top: 15px;
     margin-bottom: 20px;
-    background-color: #FFFFFF;
+    background-color: $backgrounBlog;
     box-shadow: 0  2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -87,7 +87,7 @@
 }
 
 .blogTitle {
-    color: #1890FF;
+    color: colorTitle;
 }
 
 .favoriteCounte {
