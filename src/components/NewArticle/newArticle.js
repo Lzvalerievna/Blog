@@ -12,6 +12,9 @@ function NewArticle({location}) {
     const dispatch = useDispatch()
     const newArticle = useSelector(state => state.reducer)
     const aaa = JSON.parse(localStorage.getItem('article'))
+
+    console.log(aaa)
+
     let obj;
 
     if(location.pathname !== '/new-article') {

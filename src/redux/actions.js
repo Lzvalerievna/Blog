@@ -88,7 +88,11 @@ export const setArticle = (slug) => dispatch => {
   swapiService.getArticle(slug) 
     .then(res => {
       dispatch(setArticleDescriotion(res))
+      if(res.article) {
+        dispatch(saveArticle(res.article))
+      }
   })
+  .catch((error) => console.log(error))
 }
 
 export const setFavorite = (slug) => dispatch => {
