@@ -1,24 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Spin, Pagination} from "antd";
 import 'antd/dist/antd.css';
 import { useDispatch, useSelector} from 'react-redux';
 import classes from './blogList.module.scss';
 import Blog from '../Blog/blog';
-import {setBlog, setLoading, setCurrentPage} from '../../redux/actions'
+import {setBlog, setLoading} from '../../redux/actions'
 
 function BlogList(){
 
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [offset, setOffset] = useState(0)
   const dispatch = useDispatch()
-  const blog = useSelector(state => state.reducer)
+  const blog = useSelector(state => state.blogData)
 
     useEffect(()=> {
-      dispatch(setBlog(blog.offset))
+      dispatch(setBlog(offset))
       dispatch(setLoading(true))
-    },[localStorage.getItem('token'), blog.offset])
+    },[localStorage.getItem('token'), offset])
 
     const onChange = (page) => {
       const pageOffset = (page - 1) * 4
-      dispatch(setCurrentPage(page, pageOffset))
+      setCurrentPage(page)
+      setOffset(pageOffset)
     }
 
     const ticketRender = blog.blogList.map((user,index) => {
@@ -31,7 +35,8 @@ function BlogList(){
             {blog.loading ? <div className = {classes.spin}><Spin/></div> : ticketRender} 
             <div className = {classes.pagination}>
             < Pagination className= {classes.btn}
-              defaultCurrent={1}
+              defaultCurrent={currentPage}
+              current = {currentPage}
               onChange = {onChange}
               total={blog.totalPage}
               defaultPageSize = {4}

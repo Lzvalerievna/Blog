@@ -6,7 +6,7 @@ import Header from '../Header/header';
 import BlogList from '../BlogList/blogList'
 import FormSignUp from '../FormSignUp/formSignUp'
 import FormSignIn from '../FormSignIn/formSignIn';
-import EditProfile from '../EditeProfile/editeProfile';
+import EditProfile from '../EditProfile/editProfile';
 import NewArticle from '../NewArticle/newArticle';
 import Article from '../Article/article';
 import PrivateRoute from '../PrivateRoute/privateRoute';
@@ -37,7 +37,7 @@ function App() {
                     <Route path="/sign-up" component={FormSignUp}/>
                     <Route path="/sign-in" component={FormSignIn}/>
                     <PrivateRoute path="/profile" component={EditProfile} />
-                    <Route path="/new-article" component={NewArticle} />
+                    <PrivateRoute path="/new-article" component={NewArticle} />
                     <PrivateRoute path="/articles/:slug/edit" component={NewArticle} />
                 </Switch>
             </div>

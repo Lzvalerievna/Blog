@@ -7,9 +7,12 @@ import {setSignIn} from '../../redux/actions';
 
 function FormSignIn() {
 
-    const { register, handleSubmit, formState: { errors },trigger} = useForm()
+    const { register, handleSubmit, formState: { errors },trigger} = useForm({defaultValues: {
+        email: '',
+        password: ''
+    }})
     const dispatch = useDispatch()
-    const signIn = useSelector(state => state.authReducer)
+    const signIn = useSelector(state => state.auth)
     const history = useHistory()
 
     const onSubmit = data => {

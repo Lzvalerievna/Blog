@@ -1,78 +1,85 @@
-import React, {useEffect } from 'react';
-import {NavLink, useHistory} from 'react-router-dom';
+import React, { useEffect,useState } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Spin, Popconfirm} from "antd";
 import {useDispatch, useSelector} from 'react-redux';
 import classes from './article.module.scss';
 import 'antd/dist/antd.css';
-import {setArticle, setLoading, setDeletArticle } from '../../redux/actions';
+import { setLoading, setDeletArticle } from '../../redux/actions';
+import SwapiService from '../../Api/service';
+import createDate from '../../utilites';
+
+const swapiService = new SwapiService()
 
 
 function Article({match}) { 
 
+  const [article, setArticle] = useState()
   const articleSlug = match.params.slug
   const dispatch = useDispatch()
   const history = useHistory()
-  const like = useSelector(state => state.reducer.like)
-  const blog = useSelector(state => state.reducer.article)
-  const user = useSelector(state => state.authReducer.user)
-  const loading = useSelector(state => state.reducer.loading)
+  const like = useSelector(state => state.blogData.like)
+  const user = useSelector(state => state.auth.user)
+  const loading = useSelector(state => state.blogData.loading)
+
 
   useEffect(() => {
-    dispatch(setArticle(articleSlug))
-    dispatch(setLoading(true))
+    swapiService.getArticle(articleSlug)
+    .then(data => {
+      console.log(data)
+      setArticle(data.article)
+      dispatch(setLoading(false))
+    })
   }, [])
-
-  const date = new Date(blog.createdAt);
-  const options = { year: 'numeric', month: 'long', day: 'numeric'}
-  const  releaseDate = date.toLocaleDateString("en-CA", options)
 
   function confirm() {
     dispatch(setDeletArticle(articleSlug, history))
   }
-  function cancel() {
-    console.log(cancel)
+  
+  let dateArticle;
+
+  if(article) {
+    dateArticle = createDate(article.createdAt)
   }
 
   return(
     <div> 
       {loading ? <div className = {classes.spin}><Spin/></div> : 
-      <div>
-      {!blog.author ? <div className = {classes.spin}><Spin/></div> : 
-        <div className = {classes.Blog}>
-          <div className = {classes.blog}>
-            <p className = {classes.blogTitle}>{blog.title}</p>
-            <p className = {classes.favoriteCounte}>
+        <div>
+          {article ? 
+            <div className = {classes.Blog}>
+                <div className = {classes.blog}>
+                  <p className = {classes.blogTitle}>{article.title}</p>
+                  <p className = {classes.favoriteCounte}>
             {!like ? <img className ={classes.image} src='../../heart.svg' alt="heart"/> : 
               <img className ={classes.image} src='../../heartRed.svg' alt="heart"/>}
-            <span>{blog.favoritesCount}</span>
+            <span>{article.favoritesCount}</span>
             </p>
             <div className = {classes.Author}>
                <div className = {classes.blogAuthor}>
-                <p className = {classes.blogUserName}>{blog.author.username}</p>
-                <p className = {classes.blogCreated}>{releaseDate}</p>
+                <p className = {classes.blogUserName}>{article.author.username}</p>
+                <p className = {classes.blogCreated}>{dateArticle}</p>
             </div>
-            <img className = {classes.articleImg} src={blog.author.image} alt="avatar" />
+            <img className = {classes.articleImg} src={article.author.image} alt="avatar" />
           </div>
         </div>
-        <div className= {classes.blogTagList}>{blog.tagList.map((item) => <p className = {classes.tagList}>{item}</p>)}</div>
+        <div className= {classes.blogTagList}>{article.tagList.map((item) => <p className = {classes.tagList}>{item}</p>)}</div>
         <div className = {classes.container}>
-          <p className = {classes.blogDescription}>{blog.description}</p>
-          {blog.author.username === user.username ?
+          <p className = {classes.blogDescription}>{article.description}</p>
+          {article.author.username === user.username ?
             <div className ={classes.btn}>
               <Popconfirm 
                 title="Are you sure to delete this article?"
                 placement="rightTop"
                 onConfirm={confirm}
-                onCancel={cancel}
                 okText="Yes"
                 cancelText="No"
               ><a href="#" className = {classes.btnDelete}>Delete</a></Popconfirm>
-              <NavLink className = {classes.btnEdit} to = {`/articles/${articleSlug}/edit`}>Edit</NavLink>
+              <NavLink className = {classes.btnEdit} to = {`/articles/${articleSlug}/edit`} >Edit</NavLink>
             </div>  : ''
           }
         </div>
-        <p className = {classes.blogBody}>{blog.body}</p>
-        </div>}
+        <p className = {classes.blogBody}>{article.body}</p>
+        </div> : <div className = {classes.spin}><Spin/></div>}
         </div>
        }
     </div>

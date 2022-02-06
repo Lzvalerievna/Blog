@@ -71,7 +71,8 @@
         "jsx-a11y/control-has-associated-label": "off",
         "import/named": "off",
         "react/react-in-jsx-scope": "off",
-        "react/jsx-boolean-value": "off"
+        "react/jsx-boolean-value": "off",
+        "object-shorthand": "off"
     },
     "settings": {
         "react": {

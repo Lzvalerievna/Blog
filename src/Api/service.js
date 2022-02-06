@@ -58,10 +58,10 @@ export default class SwapiService {
 
 
 async userUpdate(email, username, image, password) { 
-    const aaa = JSON.parse(localStorage.getItem('token')).token
+    const userToken = JSON.parse(localStorage.getItem('token')).token
     const result = await fetch(`${base}/user`, {
         method: 'PUT',
-        headers: {'Content-Type': 'application/json' , 'Authorization': `Token ${aaa}`},
+        headers: {'Content-Type': 'application/json' , 'Authorization': `Token ${userToken}`},
         body: JSON.stringify({user: {username, email, image, password}})
         }) 
         if(!result.ok) {
@@ -73,11 +73,11 @@ async userUpdate(email, username, image, password) {
 
     
     async postFavorite(slug) {
-        const aaa = JSON.parse(localStorage.getItem('token')).token
+        const userToken = JSON.parse(localStorage.getItem('token')).token
 
         const result = await fetch(`${base}/articles/${slug}/favorite`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${aaa}`}
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`}
         }) 
         if(!result.ok) {
             throw new Error(`Ошибка по адресу ${base}/articles/${slug}/favorite/, статус ошибки ${result.status}`)
@@ -87,11 +87,11 @@ async userUpdate(email, username, image, password) {
     }
 
     async deleteFavorite(slug) {
-        const aaa = JSON.parse(localStorage.getItem('token')).token
+        const userToken = JSON.parse(localStorage.getItem('token')).token
     
         const result = await fetch(`${base}/articles/${slug}/favorite`, {
             method: 'DELETE',
-            headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${aaa}`}
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`}
         }) 
         if(!result.ok) {
             throw new Error(`Ошибка по адресу ${base}/articles/${slug}/favorite/, статус ошибки ${result.status}`)
@@ -101,10 +101,10 @@ async userUpdate(email, username, image, password) {
     }
 
     async getNewCreate(title, description, text, tagList) {
-        const aaa = JSON.parse(localStorage.getItem('token')).token
+        const userToken = JSON.parse(localStorage.getItem('token')).token
         const result = await fetch(`${base}/articles`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Authorization': `Token ${aaa}`},
+            headers: {'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`},
             body: JSON.stringify({ "article": {
                 "title": title, 
                 "description": description,
@@ -118,11 +118,11 @@ async userUpdate(email, username, image, password) {
     
 
     async updateArticle (title, description, text, tagList, slug) {
-        const ccc = JSON.parse(localStorage.getItem('token')).token
+        const userToken = JSON.parse(localStorage.getItem('token')).token
       
         const result = await fetch(`${base}/articles/${slug}`, {
             method: 'PUT',
-            headers: {'Content-Type': 'application/json', 'Authorization': `Token ${ccc}`},
+            headers: {'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`},
             body: JSON.stringify({ "article": {
                 "title": title,
                 "description": description,
@@ -136,11 +136,11 @@ async userUpdate(email, username, image, password) {
     }
 
     async deleteArticle(slug) {
-        const ccc = JSON.parse(localStorage.getItem('token')).token
+        const userToken = JSON.parse(localStorage.getItem('token')).token
 
         const result = await fetch(`${base}/articles/${slug}`, {
             method: 'DELETE',
-            headers: {'Content-Type': 'application/json', 'Authorization': `Token ${ccc}`},
+            headers: {'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`},
         })
             const body = await result.json()
             return body;

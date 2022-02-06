@@ -14,12 +14,7 @@ export const setFavorited = (payload) => ({type: 'FAVORITED', payload})
 export const setTitleError = (payload) => ({type: 'ERRORTITLENAME', payload})
 export const setNewArticle = (payload) => ({type: 'NEWARTICLE', payload})
 export const setPassword = (payload) => ({type: 'PASSWORD', payload})
-export const setCurrentPage = (page, pageOffset) => ({type: 'CURRENTPAGE', page, pageOffset})
 export const setLike = (payload) => ({type: 'LIKE', payload})
-
-export const saveArticle = (article) => {
-  localStorage.setItem('article', JSON.stringify(article))
-}
 
 export const saveTokenInLocalStorage = (tokenUser) => {
   localStorage.setItem('token', JSON.stringify(tokenUser))
@@ -82,17 +77,6 @@ export const setEditProf = (email, username,image, password, history) => dispatc
     dispatch(setSignUpAction(res.user)) 
     history.replace('/articles')
   })
-}
-
-export const setArticle = (slug) => dispatch => {
-  swapiService.getArticle(slug) 
-    .then(res => {
-      dispatch(setArticleDescriotion(res))
-      if(res.article) {
-        dispatch(saveArticle(res.article))
-      }
-  })
-  .catch((error) => console.log(error))
 }
 
 export const setFavorite = (slug) => dispatch => {

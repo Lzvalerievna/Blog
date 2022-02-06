@@ -2,21 +2,19 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { useForm } from "react-hook-form";
-import classes from './editeProfile.module.scss';
+import classes from './editProfile.module.scss';
 import {setEditProf} from '../../redux/actions';
 
 function EditProfile() {
     
     const history = useHistory()
     const dispatch = useDispatch()
-    const newPassword = useSelector(state => state.authReducer.password)
     const objLocalUser = JSON.parse(localStorage.getItem('token'))
 
     const { register, handleSubmit, formState: { errors }, trigger } = useForm({
         defaultValues: {
             username: objLocalUser.username,
             email: objLocalUser.email,
-            password: newPassword,
             image: objLocalUser.image
           }
     });
@@ -36,7 +34,7 @@ function EditProfile() {
                                 {...register('username', { required: "Username is required",
                                     minLength: {value: 3, message: "Username must be at least 3 characters"},
                                     maxLength: {value: 20, message: "Username must be at most 20 characters"}
-                                })} onChange = {() => { trigger("username")}}/>
+                                })} onKeyUp = {() => { trigger("username")}}/>
                                 {errors.username && (<p className = {classes.danger}>{errors.username.message}</p>)}
                         </div>
                         <div className = {classes.formContainer}>
@@ -57,7 +55,8 @@ function EditProfile() {
                         </div>
                         <div className = {classes.formContainer}>
                             <label htmlFor = "image" className = {classes.formLabel}>Avatar image (url)</label>
-                            <input className = {classes.formInput} id = "image" placeholder="Avatar image"/>
+                            <input className = {classes.formInput} id = "image" placeholder="Avatar image"
+                                {...register('image', true)}/>
                         </div>
                         <button className={classes.formButton} type="submit">Save</button>  
                     </form>

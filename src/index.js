@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
-import reducer from './redux/reducer';
-import authReducer from './redux/authReducer';
+import blogData from './redux/blogData';
+import auth from './redux/auth';
 import App from './components/App/App';
 
 const composeEnhancers =
@@ -22,7 +22,7 @@ const  loggerMiddleware = store => next => action => {
   return result
 }
 
-const store = createStore(combineReducers({ reducer, authReducer }), composeEnhancers(applyMiddleware(ReduxThunk)))
+const store = createStore(combineReducers({ blogData, auth }), composeEnhancers(applyMiddleware(ReduxThunk)))
 
 ReactDOM.render(
   <Provider store={store}>

@@ -8,7 +8,7 @@ import {setSignUp, setPassword}  from '../../redux/actions';
 function FormSignUp() {
     
     const dispatch = useDispatch()
-    const signUp = useSelector(state => state.authReducer)
+    const signUp = useSelector(state => state.auth)
 
     const { register, handleSubmit, formState: { errors }, watch, trigger} = useForm({
         defaultValues: {
@@ -20,9 +20,7 @@ function FormSignUp() {
     password.current = watch("password");
     
     const onSubmit = data => {
-            console.log(data)
             dispatch(setSignUp(data.username, data.email, data.password))
-            dispatch(setPassword(data.password))
     }
 
     return(
