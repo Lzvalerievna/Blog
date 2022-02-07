@@ -7,6 +7,7 @@ export const setLoading = (payload) => ({type: 'LOADING', payload})
 export const setSignUpAction = (payload) => ({type: 'REGISTER', payload})
 export const setSignUpError = (payload) => ({type: 'REGISTERERROR', payload})
 export const setSignInError = (payload) => ({type: 'LOGINERROR', payload})
+export const setEditError = (payload) => ({type: 'EDITERROR', payload})
 export const logOutAction = () => ({type: 'LOGOUT'})
 export const setUserLocalstorege = (obj) => ({type: 'UPDATEWINDOW', obj})
 export const setArticleDescriotion = (payload) => ({type: 'DESCRIPTION', payload})
@@ -73,9 +74,17 @@ export const setEditProf = (email, username,image, password, history) => dispatc
 
   swapiService.userUpdate(username, email, image, password)
   .then(res => {
-    saveTokenInLocalStorage(res.user)
-    dispatch(setSignUpAction(res.user)) 
-    history.replace('/articles')
+    console.log(res.user)
+    if(res.user) {
+      saveTokenInLocalStorage(res.user)
+      dispatch(setSignUpAction(res.user)) 
+      dispatch(setEditError(''))
+      history.replace('/articles')
+    }
+  })
+  .catch((error) => {
+    console.log(error.message)
+    dispatch(setEditError('Username is not unique'))
   })
 }
 
@@ -98,13 +107,15 @@ export const setDeleteFavorite = (slug) => dispatch => {
 export const setCreateArticle = (title, description, text, tagList, history) => dispatch => {
   swapiService.getNewCreate(title, description, text, tagList)
   .then(res => {
+    console.log(res.article)
     if(res.article) {
       dispatch(setNewArticle(res.article)) 
       dispatch(setTitleError(''))
       history.replace('/articles')
-    } else {
-      dispatch(setTitleError('Title must be unique'))
     }
+    if(res.errors) {
+      dispatch(setTitleError('Title must be unique'))
+    }      
   })
 }
 

@@ -57,19 +57,20 @@ export default class SwapiService {
     }
 
 
-async userUpdate(email, username, image, password) { 
-    const userToken = JSON.parse(localStorage.getItem('token')).token
-    const result = await fetch(`${base}/user`, {
-        method: 'PUT',
-        headers: {'Content-Type': 'application/json' , 'Authorization': `Token ${userToken}`},
-        body: JSON.stringify({user: {username, email, image, password}})
+    async userUpdate(email, username, image, password) { 
+        const userToken = JSON.parse(localStorage.getItem('token')).token
+        const result = await fetch(`${base}/user`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json' , 'Authorization': `Token ${userToken}`},
+            body: JSON.stringify({user: {username, email, image, password}})
         }) 
         if(!result.ok) {
             throw new Error(`Ошибка по адресу ${base}/user, статус ошибки ${result.status}`)
         }
         const body = await result.json()
+        console.log(body)
         return body;
- }
+    }
 
     
     async postFavorite(slug) {
@@ -110,10 +111,11 @@ async userUpdate(email, username, image, password) {
                 "description": description,
                 "body": text,
                 "tagList": tagList
-        }})
+            }})
         }) 
-            const body = await result.json()
-            return body;
+        const body = await result.json()
+        console.log(body)
+        return body;
     }
     
 
@@ -131,21 +133,19 @@ async userUpdate(email, username, image, password) {
             }}),
             redirect: 'follow'
         }) 
-            const body = await result.json()
-            return body;
+        const body = await result.json()
+        return body;
     }
 
     async deleteArticle(slug) {
         const userToken = JSON.parse(localStorage.getItem('token')).token
 
-        const result = await fetch(`${base}/articles/${slug}`, {
+        await fetch(`${base}/articles/${slug}`, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`},
         })
-            const body = await result.json()
-            return body;
-        }
-
+    }
+    
 }
 
 

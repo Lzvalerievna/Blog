@@ -3,12 +3,13 @@ import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { useForm } from "react-hook-form";
 import classes from './editProfile.module.scss';
-import {setEditProf} from '../../redux/actions';
+import {setEditProf, setEditError} from '../../redux/actions';
 
 function EditProfile() {
     
     const history = useHistory()
     const dispatch = useDispatch()
+    const editError = useSelector(state => state.auth.editError)
     const objLocalUser = JSON.parse(localStorage.getItem('token'))
 
     const { register, handleSubmit, formState: { errors }, trigger } = useForm({
@@ -23,6 +24,10 @@ function EditProfile() {
         dispatch(setEditProf(data.username, data.email, data.image, data.password, history))
     }
 
+    const onChangeUsename = () => {
+        dispatch(setEditError(''))
+    }
+
     return(
        <div className = {classes.container}>   
                <div className = {classes.blogContainer}>
@@ -32,10 +37,12 @@ function EditProfile() {
                             <label htmlFor = "username" className = {classes.formLabel}>Username</label>
                             <input className = {classes.formInput} id = "username" placeholder="Username" 
                                 {...register('username', { required: "Username is required",
+                                    onChange: () => onChangeUsename(),
                                     minLength: {value: 3, message: "Username must be at least 3 characters"},
                                     maxLength: {value: 20, message: "Username must be at most 20 characters"}
-                                })} onKeyUp = {() => { trigger("username")}}/>
-                                {errors.username && (<p className = {classes.danger}>{errors.username.message}</p>)}
+                                })} />
+                                {errors.username ? (<p className = {classes.danger}>{errors.username.message}</p>) : 
+                                    editError ? (<p className = {classes.danger}>{editError}</p>) : ''}
                         </div>
                         <div className = {classes.formContainer}>
                             <label htmlFor = "email" className = {classes.formLabel}>Email address</label>

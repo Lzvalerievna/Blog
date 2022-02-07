@@ -14,6 +14,7 @@ const blogData = (state = initionState, action) => {
       return {...state, article: action.payload.article, loading: false}
 
     case'ERRORTITLENAME':
+    console.log(action.payload)
       return{...state, titleError: action.payload}
       
     case'FAVORITED':

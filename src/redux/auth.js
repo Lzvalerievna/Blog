@@ -1,7 +1,7 @@
 
 const initionState = {
   user: {bio: '', email: '', image: '', token: '', username: ''},
-  signUpErrorMessage: '',signInErrorMessage: ''
+  signUpErrorMessage: '', signInErrorMessage: '', editError: ''
 }
 
 const auth = (state = initionState, action) => {
@@ -21,6 +21,9 @@ const auth = (state = initionState, action) => {
 
     case'UPDATEWINDOW':
       return {...state, user: action.obj}
+
+    case'EDITERROR':
+      return {...state, editError: action.payload}
         
     default: 
       return state;
