@@ -6,16 +6,13 @@ import classes from './blogList.module.scss';
 import Blog from '../Blog/blog';
 import {setBlog, setLoading} from '../../redux/actions'
 
-function BlogList({location}){
+function BlogList(){
 
 
   const [currentPage, setCurrentPage] = useState(1)
   const [offset, setOffset] = useState(0)
   const dispatch = useDispatch()
   const blog = useSelector(state => state.blogData)
-
-  console.log(blog.blogList)
-  console.log(location)
 
     useEffect(()=> {
       dispatch(setBlog(offset))

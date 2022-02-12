@@ -122,7 +122,6 @@ export const setCreateArticle = (title, description, text, tagList, history) => 
 export const setUpdateArticle = (title, description, text, tagList, slug, history) => dispatch => {
   swapiService.updateArticle(title, description, text, tagList, slug) 
   .then(res => {
-    console.log(res.article)
       dispatch(setNewArticle(res.article)) 
       dispatch(setTitleError(''))
       history.replace('/articles')

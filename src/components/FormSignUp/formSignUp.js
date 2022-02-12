@@ -1,9 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
-import {connect, useDispatch, useSelector} from 'react-redux';
+import React, { useRef } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import classes from './formSignUp.module.scss';
-import {setSignUp, setPassword}  from '../../redux/actions';
+import {setSignUp}  from '../../redux/actions';
 
 function FormSignUp() {
     
