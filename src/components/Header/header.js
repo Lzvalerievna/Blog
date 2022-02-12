@@ -16,9 +16,10 @@ function Header() {
   }
 
   return (
+    <div className = {classes.headerBackground}>  
     <div className = {classes.header}>
-      <p><NavLink  className = {classes.headerText} to = {'/articles'} 
-          activeClassName={classes.headerName}>Realworld Blog</NavLink>
+      <p>
+        <NavLink  className = {classes.headerText} to = {'/articles'} activeClassName={classes.headerName}>Realworld Blog</NavLink>
       </p>
       <div className = {classes.headerNav}>
         {localStorage.getItem('token')  ? (
@@ -48,6 +49,7 @@ function Header() {
           </>
         )}
       </div>
+    </div>
     </div>
   )
 }

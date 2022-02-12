@@ -6,13 +6,16 @@ import classes from './blogList.module.scss';
 import Blog from '../Blog/blog';
 import {setBlog, setLoading} from '../../redux/actions'
 
-function BlogList(){
+function BlogList({location}){
 
 
   const [currentPage, setCurrentPage] = useState(1)
   const [offset, setOffset] = useState(0)
   const dispatch = useDispatch()
   const blog = useSelector(state => state.blogData)
+
+  console.log(blog.blogList)
+  console.log(location)
 
     useEffect(()=> {
       dispatch(setBlog(offset))
@@ -25,9 +28,9 @@ function BlogList(){
       setOffset(pageOffset)
     }
 
-    const ticketRender = blog.blogList.map((user,index) => {
+    const ticketRender = blog.blogList.map((user) => {
         const {id, ...itemProps} = user;
-          return <Blog {...itemProps} key = {index}/>
+          return <Blog {...itemProps} key = {id}/>
     })
 
     return(

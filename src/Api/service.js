@@ -9,10 +9,10 @@ export default class SwapiService {
         const response = await fetch(`${base}/articles`);
 
         if (localStorage.getItem('token')) {
-            const aaa = JSON.parse(localStorage.getItem('token')).token
+            const userToken = JSON.parse(localStorage.getItem('token')).token
             const result = await fetch(`${base}/articles?limit=4&offset=${offset}`, {
                 method: 'get',
-                headers: {'Content-Type': 'application/json', 'Authorization': `Token ${aaa}`},
+                headers: {'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`},
             }) 
             if(!result.ok) {
                 throw new Error(`Ошибка по адресу ${base}/articles, статус ошибки ${result}`)
@@ -68,7 +68,6 @@ export default class SwapiService {
             throw new Error(`Ошибка по адресу ${base}/user, статус ошибки ${result.status}`)
         }
         const body = await result.json()
-        console.log(body)
         return body;
     }
 
@@ -114,7 +113,6 @@ export default class SwapiService {
             }})
         }) 
         const body = await result.json()
-        console.log(body)
         return body;
     }
     

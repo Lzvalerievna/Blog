@@ -3,12 +3,16 @@
 
 .header {
     display: flex;
-    margin: 0 auto;
-    
-    height: 90px;
     flex-wrap: nowrap;
+    margin: 0 auto;
+    width: 1440px;
+}
+
+.headerBackground {
+    height: 90px;
     background: $backgrounBlog;
 }
+
 .headerText {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
