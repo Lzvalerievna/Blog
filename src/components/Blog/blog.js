@@ -33,7 +33,7 @@ function Blog({title, author, createdAt, description, tagList, slug, favoritesCo
                         <img className = {classes.blogImg} src={author.image} alt="avatar" />
                     </div>
                 </div>
-                <div className={classes.blogTagList}>{tagList.map((item) => <p  className = {classes.tagList}>{item}</p>)}</div>
+                <div className={classes.blogTagList}>{tagList.map((item) => <p  className = {classes.tagList} key = {item}>{item}</p>)}</div>
                 <p className = {classes.blogBody}>{description}</p>
            </div>
         </div>
