@@ -1,5 +1,5 @@
 
-const initionState = {blogList: [], article: [], titleError: '', loading: true, totalPage: 0, like: false}
+const initionState = {blogList: [], article: [], titleError: '', loading: true, totalPage: 0}
 
 const blogData = (state = initionState, action) => {
   switch (action.type) {
@@ -24,9 +24,6 @@ const blogData = (state = initionState, action) => {
         }
         return article;
       }), article: action.payload}  
-
-    case'LIKE': 
-      return {...state, like: action.payload}
 
     case'NEWARTICLE': {
       return {...state, blogList: state.blogList}

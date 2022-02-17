@@ -26,8 +26,8 @@ function BlogList(){
     }
 
     const ticketRender = blog.blogList.map((user) => {
-        const {id, ...itemProps} = user;
-          return <Blog {...itemProps} key = {id}/>
+        const {...itemProps} = user;
+          return <Blog {...itemProps} key = {user.slug}/>
     })
 
     return(

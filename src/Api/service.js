@@ -29,7 +29,13 @@ export default class SwapiService {
     }
 
     async getArticle(slug) {
-        const res = await fetch(`${base}/articles/${slug}`)
+        const userToken = JSON.parse(localStorage.getItem('token')).token
+        const res = await fetch(`${base}/articles/${slug}`, {
+            method: 'get',
+            headers: {'Content-Type': 'application/json', 'Authorization': `Token ${userToken}`},
+        }) 
+
+        
         const body = await res.json() 
         return body;
     }

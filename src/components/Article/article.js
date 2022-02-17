@@ -25,7 +25,6 @@ function Article({match}) {
   useEffect(() => {
     swapiService.getArticle(articleSlug)
     .then(data => {
-      console.log(data)
       setArticle(data.article)
       dispatch(setLoading(false))
     })
@@ -34,9 +33,8 @@ function Article({match}) {
   function confirm() {
     dispatch(setDeletArticle(articleSlug, history))
   }
-  
-  let dateArticle;
 
+  let dateArticle;
   if(article) {
     dateArticle = createDate(article.createdAt)
   }
@@ -50,38 +48,36 @@ function Article({match}) {
                 <div className = {classes.blog}>
                   <p className = {classes.blogTitle}>{article.title}</p>
                   <p className = {classes.favoriteCounte}>
-            {!like ? <img className ={classes.image} src='../../heart.svg' alt="heart"/> : 
-              <img className ={classes.image} src='../../heartRed.svg' alt="heart"/>}
-            <span>{article.favoritesCount}</span>
-            </p>
-            <div className = {classes.Author}>
-               <div className = {classes.blogAuthor}>
-                <p className = {classes.blogUserName}>{article.author.username}</p>
-                <p className = {classes.blogCreated}>{dateArticle}</p>
-            </div>
-            <img className = {classes.articleImg} src={article.author.image} alt="avatar" />
-          </div>
-        </div>
-        <div className= {classes.blogTagList}>{article.tagList.map((item) => <p className = {classes.tagList}>{item}</p>)}</div>
-        <div className = {classes.container}>
-          <p className = {classes.blogDescription}>{article.description}</p>
-          {article.author.username === user.username ?
-            <div className ={classes.btn}>
-              <Popconfirm 
-                title="Are you sure to delete this article?"
-                placement="rightTop"
-                onConfirm={confirm}
-                okText="Yes"
-                cancelText="No"
-              ><a href="#" className = {classes.btnDelete}>Delete</a></Popconfirm>
-              <NavLink className = {classes.btnEdit} to = {`/articles/${articleSlug}/edit`} >Edit</NavLink>
-            </div>  : ''
-          }
-        </div>
-        <p className = {classes.blogBody}>{article.body}</p>
-        </div> : <div className = {classes.spin}><Spin/></div>}
-        </div>
-       }
+                    {!article.favorited ? <img className ={classes.image} src='../../heart.svg' alt="heart"/> : 
+                      <img className ={classes.image} src='../../heartRed.svg' alt="heart"/>}
+                      <span>{article.favoritesCount}</span>
+                  </p>
+                  <div className = {classes.Author}>
+                    <div className = {classes.blogAuthor}>
+                      <p className = {classes.blogUserName}>{article.author.username}</p>
+                      <p className = {classes.blogCreated}>{dateArticle}</p>
+                    </div>
+                    <img className = {classes.articleImg} src={article.author.image} alt="avatar" />
+                  </div>
+                </div>
+                <div className= {classes.blogTagList}>{article.tagList.map((item) => <p className = {classes.tagList}>{item}</p>)}</div>
+                <div className = {classes.container}>
+                  <p className = {classes.blogDescription}>{article.description}</p>
+                  {article.author.username === user.username ?
+                    <div className ={classes.btn}>
+                      <Popconfirm 
+                        title="Are you sure to delete this article?"
+                        placement="rightTop"
+                        onConfirm={confirm}
+                        okText="Yes"
+                        cancelText="No"
+                      ><a href="#" className = {classes.btnDelete}>Delete</a></Popconfirm>
+                      <NavLink className = {classes.btnEdit} to = {`/articles/${articleSlug}/edit`} >Edit</NavLink>
+                    </div>  : ''}
+                </div>
+                <p className = {classes.blogBody}>{article.body}</p>
+            </div> : <div className = {classes.spin}><Spin/></div>}
+        </div>}
     </div>
   )
 }

@@ -15,7 +15,6 @@ export const setFavorited = (payload) => ({type: 'FAVORITED', payload})
 export const setTitleError = (payload) => ({type: 'ERRORTITLENAME', payload})
 export const setNewArticle = (payload) => ({type: 'NEWARTICLE', payload})
 export const setPassword = (payload) => ({type: 'PASSWORD', payload})
-export const setLike = (payload) => ({type: 'LIKE', payload})
 
 export const saveTokenInLocalStorage = (tokenUser) => {
   localStorage.setItem('token', JSON.stringify(tokenUser))
@@ -91,7 +90,6 @@ export const setEditProf = (email, username,image, password, history) => dispatc
 export const setFavorite = (slug) => dispatch => {
   swapiService.postFavorite(slug)
   .then(res => {
-    dispatch(setLike(res.article.favorited))
     dispatch(setFavorited(res.article))
   })
 }
@@ -99,7 +97,6 @@ export const setFavorite = (slug) => dispatch => {
 export const setDeleteFavorite = (slug) => dispatch => {
   swapiService.deleteFavorite(slug)
   .then(res => {
-    dispatch(setLike(res.article.favorited))
     dispatch(setFavorited(res.article))
   })
 }
