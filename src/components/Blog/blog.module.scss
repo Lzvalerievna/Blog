@@ -3,7 +3,7 @@
 .navArticle {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 28px;
     color: $colorText;
 }
@@ -28,43 +28,44 @@
     padding-top: 0px;
     display: flex;
     flex-wrap: nowrap;
+    margin-bottom: 30px;
 }
 
 .Author {
-    align-items: center;
+    margin-top: 5px;
     display: flex;
     flex-wrap: nowrap;
-    text-indent: 230px;
     margin-left: auto;
     margin-right: 20px;
 }
 
 .blogUserName {
-    text-align: end;
-    margin-bottom: 0px;
+    margin-left: 50px;
+    text-align: center;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    line-height: 28px;
+    line-height: 20px;
 }
 
 .blogCreated {
-    margin-top: -10px;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
-    line-height: 28px;
     color: rgba(0, 0, 0, 0.5);
+    margin-top: -20px;
+    margin-left: 18px;
 }
 
 .blogAuthor {
+    
     margin-right: 15px;
 }
 
 .blogBody {
     margin-left: 20px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     width: 682px;
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 18px;
 }
 

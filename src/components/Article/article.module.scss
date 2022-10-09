@@ -14,38 +14,36 @@
     width: 50px;
     height: 50px;
     border-radius:50%;
-    margin-top: -10px
 }
 .blog {
     margin-left: 20px;
-    padding-top: 0px;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: nowrap;
 }
 
 .Author {
-    align-items: center;
     display: flex;
     flex-wrap: nowrap;
-    text-indent: 230px;
     margin-left: auto;
     margin-right: 20px;
+    margin-top: 10px;
 }
 
 .blogUserName {
-    text-align: end;
-    margin-bottom: 0px;
+    margin-left: 50px;
+    text-align: center;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    line-height: 28px;
+    line-height: 20px;
 }
 
 .blogCreated {
-    margin-top: -10px;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
-    line-height: 28px;
     color: rgba(0, 0, 0, 0.5);
+    margin-top: -20px;
+    margin-left: 18px;
 }
 
 .blogAuthor {
@@ -57,16 +55,17 @@
     margin-top: -5px;
     width: 682px;
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 16px;
     line-height: 18px;
 }
 
 .blogBody {
     margin-left: 20px;
+    margin-right: 20px;
     margin-top: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 18px;
 }
 
