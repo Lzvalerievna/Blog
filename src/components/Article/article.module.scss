@@ -4,7 +4,7 @@
     width: 941px;
     margin: 0 auto;
     margin-top: 40px;
-    padding-top: 15px;
+    padding: 5px;
     background-color: $backgrounBlog;
     box-shadow: 0  2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -51,22 +51,26 @@
 }
 
 .blogDescription {
-    margin-left: 20px;
-    margin-top: -5px;
-    width: 682px;
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 18px;
+    max-width: 678px;
+    margin-left: 20px;
+    white-space: wrap;
+    word-break: break-word;
 }
 
 .blogBody {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 5px;
+    /*
+    display: block;
+    
+    width: 100%;
     padding-bottom: 20px;
-    font-family: 'Inter', sans-serif;
     font-size: 16px;
-    line-height: 18px;
+    */
+    font-family: 'Inter', sans-serif;
+    max-width: 678px;
+    margin-left: 20px;
+    white-space: wrap;
+    word-break: break-word;
 }
 
 .blogTagList {
@@ -88,10 +92,13 @@
 }
 
 .blogTitle {
+    max-width: 680px;
+    margin-top: 5px;
+    white-space: wrap;
+    word-break: break-word;
     color: $colorTitle;
     font-family: 'Inter', sans-serif;
     font-size: 20px;
-    line-height: 28px;
 }
 
 .favoriteCounte {
@@ -100,6 +107,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 12px;
     margin-left: 13px;
+    margin-top: 8px;
 }
 
 .image {
@@ -123,7 +131,6 @@
 
 .btn {
     margin-left: auto;
-    margin-top: 10px;
     margin-right: 10px;
 }
 
@@ -153,6 +160,10 @@
     margin: 0 auto;
     width: 100px;
     margin-top: 250px;
+}
+
+.blogBodyFooter {
+    display: flex;
 }
 
 

@@ -61,6 +61,10 @@
 }
 
 .blogBody {
+    max-width: 680px;
+    margin-top: 5px;
+    white-space: wrap;
+    word-break: break-word;
     margin-left: 20px;
     padding-bottom: 15px;
     width: 682px;
@@ -89,6 +93,12 @@
 
 .blogTitle {
     color: colorTitle;
+    max-width: 680px;
+    white-space: wrap;
+    word-break: break-word;
+    color: $colorTitle;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
 }
 
 .favoriteCounte {

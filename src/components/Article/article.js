@@ -46,7 +46,7 @@ function Article({match}) {
           {article ? 
             <div className = {classes.Blog}>
                 <div className = {classes.blog}>
-                  <p className = {classes.blogTitle}>{article.title}</p>
+                  <p className = {classes.blogTitle} lang="ru">{article.title}</p>
                   <p className = {classes.favoriteCounte}>
                     {!article.favorited ? <img className ={classes.image} src='../../heart.svg' alt="heart"/> : 
                       <img className ={classes.image} src='../../heartRed.svg' alt="heart"/>}
@@ -63,7 +63,10 @@ function Article({match}) {
                 <div className= {classes.blogTagList}>{article.tagList.map((item) => <p className = {classes.tagList}>{item}</p>)}</div>
                 <div className = {classes.container}>
                   <p className = {classes.blogDescription}>{article.description}</p>
-                  {article.author.username === user.username ?
+                </div>
+                <div className = {classes.blogBodyFooter}>
+                <p className = {classes.blogBody}>{article.body}</p>
+                {article.author.username === user.username ?
                     <div className ={classes.btn}>
                       <Popconfirm 
                         title="Are you sure to delete this article?"
@@ -75,7 +78,6 @@ function Article({match}) {
                       <NavLink className = {classes.btnEdit} to = {`/articles/${articleSlug}/edit`} >Edit</NavLink>
                     </div>  : ''}
                 </div>
-                <p className = {classes.blogBody}>{article.body}</p>
             </div> : <div className = {classes.spin}><Spin/></div>}
         </div>}
     </div>
